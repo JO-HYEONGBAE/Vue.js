@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        {{ year }} {{ message }}
+        <button v-on:click="Add">더하기</button>
+        <button v-on:click="Minus">빼기</button>
+        <button v-on:click="Reverse">뒤집기</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+
+            year:2020,
+
+            message: "뒤집기"
+
+            },
+
+            methods: {
+                Add() {
+                    this.year++;
+                },
+                Minus()  {
+                    this.year--;
+                },
+                Reverse: function () {
+                    this.message = this.message.split('').reverse().join('')
+                }
+
+            
+            }
+        });
+
+
+    </script>
+</body>
+</html>
