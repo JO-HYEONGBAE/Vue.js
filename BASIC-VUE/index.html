@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>Hello Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ nextYear('안녕하세요') }}
+      <br/>
+      <input v-bind:type="inputData" :value="value">
+      <a v-bind:href="getLink(1)">링크</a>
+    </div>
+    <script>
+        new Vue({
+          el:"#app",
+          data:{
+            person:{
+            name:'조형배',
+            age:30
+          },
+          inputData:"text",
+          value:"hello",
+          link:"http://www.naver.com/"
+          },
+          methods:{
+            getLink : function(index){
+              return this.link+index;
+            },
+            nextYear: function(hello){
+              return hello+' ! '+this.person.name + " 는 내년에 " +(this.person.age+1)+" 살이 됩니다.";
+            },
+            otherMethod: function(hello){
+              this.nextYear(hello);
+            }
+          }
+        });
+    </script>
+
+  </body>
+</html>
