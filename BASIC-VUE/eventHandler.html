@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>이벤트 핸들러</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="example">
+
+        <button v-on:click="greet">{{ val }}</button>
+
+    </div>
+    <script>
+
+        var example = new Vue({
+            el: "#example",
+            data: {
+                val: "버튼",
+                name: "Vue.js"
+            },
+            methods: {
+                greet: function(event) {
+                    alert("Hello " + this.name + '!')
+
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>
