@@ -8,8 +8,8 @@
 </head>
 <body>
     <div id="example">
-
-        {{reversedMessage}}
+        <input type="button" @click="change" :value="message"/>
+        {{ message }}
 
     </div>
 
@@ -21,9 +21,21 @@
             data: {
                 message:"hello"
             },
+            methods: {
+                change() {
+                    this.message="js"
+                }
+            },
             computed: {
                 reversedMessage: function () {
                     return this.message.split('').reverse().join('')
+                }
+            },
+            watch: {
+                message(newVal, oldVal) {
+                    
+                    console.log(newVal, oldVal);
+
                 }
             }
 
