@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <template v-if="number===1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+
+        <template v-else-if="number===2">
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </template>
+        <!--<template v-if="show">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </template>-->
+        <!--<div v-if="show">
+        Yes
+    </div>-->
+
+        <div v-else>
+            No
+        </div>
+        <br />
+
+        <button type="button" @click="addNum">변경</button>
+        <div v-show="show">Show</div>
+        <button type="button" @click="change">체인지</button>
+
+    </div>
+    <script>
+
+        new Vue({
+            el: "#app",
+            data: {
+                show: true,
+                number:1
+            },
+            methods: {
+                change() {
+                    this.show = !this.show
+                },
+                addNum() {
+                    if (this.number < 3) {
+
+                        this.number++;
+                    }
+                    else {
+                        this.number = 1;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
