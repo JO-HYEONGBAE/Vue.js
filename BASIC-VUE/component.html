@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--{{name}}
+        <input type="button" value="변경" v-on:click="changeText"/>
+        <hr />-->
+    <hbsr-button></hbsr-button>
+    </div>
+    <hr />
+  <!--  <div id="app2">
+        {{name}}
+        <input type="button" value="변경" v-on:click="changeText" />
+        <hr />
+    <hbsr-button></hbsr-button>
+        <hr />
+    </div>-->
+
+    <script>
+        //Vue.component('hello-world', {
+        //    template:`<div>hello world</div>`
+        //})
+
+        //Vue.component('hbsr-button', {
+        //    template: `
+        //    <div>
+        //        {{ name }}<br>
+        //        <hello-world></hello-world> 
+        //        <button @click="changeText">Click</button>
+        //     </div>
+        //     `,
+        //    data() {
+        //        return {
+        //            name: "hb"
+        //        }
+        //    },
+        //    methods: {
+        //        changeText() {
+        //            this.name = 'hbsr'
+        //        }
+        //    }
+        //}); 
+
+        const HelloWorld = {
+            template: `<div>etrees System</div>`
+        };
+
+        const HbsrButton = {
+            components: {
+                'hello-world': HelloWorld
+            },
+            template: `
+            <div>
+                {{ name }}<br>
+                <hello-world></hello-world> 
+                <button @click="changeText">Click</button>
+             </div>
+             `,
+            data() {
+                return {
+                    name: "hbsr"
+                }
+            },
+            methods: {
+                changeText() {
+                    this.name = 'sr'
+                }
+            }
+
+        };
+
+
+
+        const app = new Vue({
+            el: "#app",
+            components: {
+                'hbsr-button': HbsrButton
+            }
+            //data: {
+            //    name: 'sr'
+            //},
+            //methods: {
+            //    changeText() {
+            //        app2.name='hb'
+            //    }
+            //}
+        })
+
+        //const app2 = new Vue({
+        //    el: "#app2",
+        //    //data: {
+        //    //    name: 'sr'
+        //    //},
+        //    //methods: {
+        //    //    changeText() {
+        //    //        app.name = 'hb'
+        //    //    }
+        //    //}
+        //})
+
+    </script>
+</body>
+</html>
