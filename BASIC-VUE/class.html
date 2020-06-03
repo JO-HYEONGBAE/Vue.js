@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red {
+            color:red;
+        }
+        .bold {
+            font-weight:bold;
+        }
+        .active{
+            color:blue;
+        }
+        .text-danger{
+            font-size:100px;
+        }
+
+    </style>
+
+</head>
+    
+
+<body>
+
+    <div id="example">
+        <div v-bind:class="{red: isRed, bold : isBold}">
+            {{message}}
+        </div>
+        <div :class="classObject">
+
+            {{message}}
+        </div>
+        <input type="button" value="Click" v-on:click="change" />
+        <div :class="classObject2">
+
+            {{message}}
+          
+        </div>
+     
+    </div>
+    <script>
+
+        new Vue({
+            el: "#example",
+            data: {
+                message: "조형배",
+                isRed: false,
+                isBold: false,
+                classObject: {
+                    red: true,
+                    bold: true
+                },
+                isActive: true,
+                error: null,
+                
+            },
+            methods: {
+                change() {
+                    this.isRed = !this.isRed
+                    this.isBold = !this.isBold
+                    this.classObject.red = !this.classObject.red
+                    this.classObject.bold = !this.classObject.bold
+                   // this.error.type = 'fatal'
+                }
+            },
+            computed: {
+                classObject2() {
+                    return {
+                        active: this.isActive && !this.error,
+                        'text-danger': this.error && this.error.type === 'fatal',
+                        
+                    }
+                        
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
